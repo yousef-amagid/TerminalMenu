@@ -1,12 +1,6 @@
 #ifndef UTILS_HPP
 #define UTILS_HPP
 
-#include <iostream>
-#include <termios.h>
-#include <unistd.h>
-#include <csignal>
-#include <cstring>
-
 #define ANSI_CLEAR_SCREEN "\033[2J\033[1;1H"
 #define ANSI_HIDE_CURSOR "\033[?25l"
 #define ANSI_SHOW_CURSOR "\033[?25h"
@@ -16,6 +10,7 @@
 void getInitialTerminalOptions();
 void restoreTerminalOptions();
 void setNewTerminalOptions();
+int getTerminalRowCount();
 
 void clearScreen();
 char* getKey();

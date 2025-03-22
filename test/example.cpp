@@ -3,15 +3,15 @@
 
 int main() {
 
-    bool exit_0 = false;
-    bool exit_1 = false;
-    bool exit_2 = false;
+    bool exit_D00 = false;
+    bool exit_D10 = false;
+    bool exit_D11 = false;
 
     std::vector<std::string> list_0 = {
         "Option 1",
         "Option 2",
         "Option 3",
-	"Option 4",
+        "Option 4",
     };
 
     std::vector<std::string> list_1 = {
@@ -26,80 +26,77 @@ int main() {
         "Option III"
     };
 
-
-    std::string title_0 = "Hell Yeah!!";
-    std::string title_1 = "The title works fine.\nMultiple lines too :)";
-    std::string title_2 = "The back option too :D";
-
+    std::string title_D00 = "Hell Yeah!!";
+    std::string title_D10 = "The title works fine.\nMultiple lines too :)";
+    std::string title_D11 = "The back option too :D";
 
     TerminalMenu mm;
 
-    // Theme fg;
-    // fg.mode = ANSI_FG_STNDRD;
-    // fg.color = BLUE;
+    Theme fg;
+    fg.mode = ANSI_FG_STNDRD;
+    fg.color = WHITE;
 
-    // Theme bg;
-    // bg.mode = ANSI_BG_BRIGHT;
-    // bg.color = YELLOW;
+    Theme bg;
+    bg.mode = ANSI_BG_STNDRD;
+    bg.color = BLACK;
 
-    // mm.setTheme(fg, bg);
+    mm.setTheme(fg, bg);
     int selected;
 
-    while (!exit_0) {
+    while (!exit_D00) {
 
-        exit_1 = false;
-        exit_2 = false;
+        exit_D10 = false;
+        exit_D11 = false;
         
-        selected = mm.showMenu( list_0, title_0, false );
+        selected = mm.showMenu( list_0, title_D00, false );
         switch ( selected ) {
             case -1:
-                exit_0 = true;
+                exit_D00 = true;
                 break;
             case 0:
 
-                while (!exit_1) {
+                while (!exit_D10) {
 
-                    selected = mm.showMenu( list_1, title_1, true );
-                    switch ( selected) {
+                    selected = mm.showMenu( list_1, title_D10, true );
+                    switch ( selected ) {
                         
                         case -1:
-                            exit_1 = true;
+                            exit_D10 = true;
                             break;
-                        case 0:
-                        case 1:
-                        case 2:
-                            exit_1 = true;
-			    exit_0 = true;
-                        
-                    }
-                } break;
+                        default:
+                            exit_D10 = true;
+			                exit_D00 = true;
+                            break;          
+                    } 
+                }
 
-            case 1:
-                exit_0 = true;
                 break;
-            case 2:
-                 while (!exit_2) {
 
-                    selected = mm.showMenu( list_2, title_2, true );
-                    switch ( selected) {
+            case 2:
+            
+                while (!exit_D11) {
+
+                    selected = mm.showMenu( list_2, title_D11, true );
+                    switch ( selected ) {
                         
                         case -1:
-                            exit_2 = true;
+                            exit_D11 = true;
                             break;
-                        case 0:
-                        case 1:
-                        case 2:
-                            exit_2 = true;
-                            exit_0 = true;
-                        
+                        default:
+                            exit_D11 = true;
+                            exit_D00 = true;
+                            break;
+
                     }
-                 } break;
-	    case 3:
-		exit_0 = true;
+                }
+
+                break;
+
+	        default:
+		        exit_D00 = true;
+                break;
         }
-
     }
-
 
     return 0;
     

@@ -1,0 +1,71 @@
+{ "menu": {
+
+    "theme": {
+        "foreground": {"mode": "default", "color": "BLUE"},
+        "background": {"mode": "default", "color": "default"}
+    },
+
+    "id": "D00",
+    "parent": "default",
+    "title": "Hell Yeah!",
+    "back": false,
+    "options": {
+
+        "labels": ["Option XYS", "Option 2", "Option 3", "Option 4"],
+        "actions": [
+            
+            {
+                "id": "D10",
+                "parent": "D00",
+                "title": "The title works fine.\nMultiple lines too :)",
+                "back": true,
+                "options": {
+
+                    "labels": ["Option A", "Option B", "Option C"],
+                    "actions": [ "default", "default", "default" ]
+
+
+                }
+            },
+
+            "default",
+
+            {
+                
+                "id": "D12",
+                "parent": "D00",
+                "title": "The back option too :D",
+                "back": true,
+                "options": {
+
+                    "labels": ["Option I", "Option II", "Option III"],
+                    "actions": [
+
+                        {
+                            "id": "D20",
+                            "parent": "D12",
+                            "title": "This generator is really cool!",
+                            "back": true,
+                            "options": {
+                                
+                                "labels": ["0x1000", "0x2000"],
+                                "actions": [ "default", "default" ]
+
+                            }
+
+                        },
+
+                        "default",
+                        "default"
+                    
+                    ]
+
+                }
+
+            },
+            
+            "default"
+        ]
+    }
+
+}}

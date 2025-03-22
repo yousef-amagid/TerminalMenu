@@ -1,3 +1,8 @@
+#include <iostream>
+#include <csignal>
+#include <termios.h>
+#include <sys/ioctl.h>
+
 #include "utils.hpp"
 
 static termios oldt;
@@ -27,6 +32,11 @@ void setNewTerminalOptions() {
     std::cout << ANSI_HIDE_CURSOR;
 }
 
+int getTerminalRowCount() {
+    struct winsize terminalSize;
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &terminalSize);
+    return terminalSize.ws_row;
+}
 
 char* getKey() {
     char* buf = new char[BUFFER_SIZE];
